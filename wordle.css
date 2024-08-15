@@ -40,19 +40,60 @@ hr{
 }
 
 .correct{
-    background-color: #6AAA64;
+    background-color: #6AAA64 !important;
     color: white;
     border-color: white;
 }
 
 .present{
-    background-color: #c9b658;
+    background-color: #c9b658 !important;
     color: white;
     border-color: white;
 }
 
 .absent{
-    background-color: #787C7E;
+    background-color: #787C7E !important;
     color: white;
     border-color: white;
+}
+
+.keyboard-row {
+    width: 400px;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.key-tile {
+    /* box */
+    background-color: lightgray;
+    border: 1px solid lightgray;
+    width: 32px;
+    height: 40px;
+    margin: 2px;
+
+    /* text */
+    font-size: 20px;
+    display: flex;
+    font-weight: bold;
+    justify-content: center;
+    align-items: center;
+}
+
+.enter-key-tile {
+    /* box */
+    background-color: lightgray;
+    border: 1px solid lightgray;
+    width: 76px;
+    height: 40px;
+    margin: 1px;
+
+    /* text */
+    font-size: 20px;
+    display: flex;
+    font-weight: bold;
+    justify-content: center;
+    align-items: center;
 }
