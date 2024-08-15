@@ -120,7 +120,8 @@ function update(){
     }
     guess = guess.toLowerCase();
     if(!wordList.includes(guess)){
-        document.getElementById("answer").innerText = "Not in word list";
+        // document.getElementById("answer").innerText = "Not in word list";
+        showPopUp("Not in word list");
         return;
     }
     
@@ -184,6 +185,20 @@ function update(){
     
     row += 1;
     col = 0;
+}
+
+function showPopUp(popupMessage){
+    const popup = document.getElementById('popup');
+    popup.innerText = popupMessage;
+    // Show the pop-up
+    popup.classList.remove('hidden');
+    popup.classList.add('show');
+
+    // Hide the pop-up after 1 second (1000ms)
+    setTimeout(function() {
+        popup.classList.remove('show');
+        popup.classList.add('hidden');
+    }, 2000);  // 1 second delay
 }
 
 

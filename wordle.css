@@ -11,7 +11,8 @@ hr{
     font-size: 36px;
     font-weight: bold;
     letter-spacing: 2px;
-    margin-top: 20px;
+    margin-top: 10px;
+    margin-bottom: 10px;
 }
 
 #board {
@@ -46,13 +47,13 @@ hr{
 }
 
 .present{
-    background-color: #c9b658 !important;
+    background-color: #c9b458 !important;
     color: white;
     border-color: white;
 }
 
 .absent{
-    background-color: #787C7E !important;
+    background-color: #787c7e !important;
     color: white;
     border-color: white;
 }
@@ -68,8 +69,8 @@ hr{
 
 .key-tile {
     /* box */
-    background-color: lightgray;
-    border: 1px solid lightgray;
+    background-color: #d3d6da;
+    border: 1px solid #d3d6da;
     width: 32px;
     height: 40px;
     margin: 2px;
@@ -84,8 +85,8 @@ hr{
 
 .enter-key-tile {
     /* box */
-    background-color: lightgray;
-    border: 1px solid lightgray;
+    background-color: #d3d6da;
+    border: 1px solid #d3d6da;
     width: 76px;
     height: 40px;
     margin: 1px;
@@ -96,4 +97,29 @@ hr{
     font-weight: bold;
     justify-content: center;
     align-items: center;
+}
+
+/* Basic styling for the pop-up */
+.popup {
+    position: fixed;
+    top: 10%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #333;
+    color: white;
+    padding: 20px;
+    border-radius: 8px;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+    z-index: 1000;
+}
+
+/* Class to make the pop-up visible */
+.popup.show {
+    opacity: 1;
+}
+
+/* Hidden by default */
+.hidden {
+    display: none;
 }
