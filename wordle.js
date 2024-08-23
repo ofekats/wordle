@@ -153,9 +153,10 @@ function update(){
             letterCount[letter] -= 1;
         }
 
-        //the guess is the word => gameOver
+        //the guess is the word => gameOver, you won!
         if(correct == width){
             gameOver = true;
+            showPopUp("You are awesome!");
         }
     }
 
@@ -187,6 +188,7 @@ function update(){
     col = 0;
 }
 
+//function to show the popup with the message as input for 1 second
 function showPopUp(popupMessage){
     const popup = document.getElementById('popup');
     popup.innerText = popupMessage;
