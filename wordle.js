@@ -108,7 +108,7 @@ function processInput(e){
     }
 }
 
-function update(){
+async function update(){
     //check if the guess is a word
     let guess = "";
     document.getElementById("answer").innerText = "";
@@ -121,6 +121,12 @@ function update(){
     guess = guess.toLowerCase();
     if(!wordList.includes(guess)){
         // document.getElementById("answer").innerText = "Not in word list";
+        
+        //vibrate the tiles
+        for(let c = 0; c < width; ++c){
+            let currentTile = document.getElementById(row.toString() + "_" + c.toString());
+            triggerVibration(currentTile);
+        }
         showPopUp("Not in word list");
         return;
     }
@@ -144,7 +150,10 @@ function update(){
 
         //is it the correct letter?
         if (word[c] == letter){
-            currentTile.classList.add("correct");
+            //flip the tile
+            flipTile(currentTile, "correct");
+            await sleep(300); // Wait for 300ms before flipping the next tile
+            
             //update style in keybord
             let keyTile = document.getElementById("Key" + letter);
             keyTile.classList.remove("present");
@@ -167,7 +176,10 @@ function update(){
         if(!currentTile.classList.contains("correct")){
             // is it in the word?
             if (word.includes(letter) && letterCount[letter] > 0){
-                currentTile.classList.add("present");
+                //flip the tile
+                flipTile(currentTile, "present");
+                await sleep(300); // Wait for 300ms before flipping the next tile
+
                 //update style in keybord
                 let keyTile = document.getElementById("Key" + letter);
                 if( !keyTile.classList.contains("correct")){
@@ -176,7 +188,10 @@ function update(){
                 letterCount[letter] -= 1;
             }//not in the word
             else{
-                currentTile.classList.add("absent");
+                //flip the tile
+                flipTile(currentTile, "absent");
+                await sleep(300); // Wait for 300ms before flipping the next tile
+
                 //update style in keybord
                 let keyTile = document.getElementById("Key" + letter);
                 keyTile.classList.add("absent");
@@ -201,6 +216,32 @@ function showPopUp(popupMessage){
         popup.classList.remove('show');
         popup.classList.add('hidden');
     }, 2000);  // 1 second delay
+}
+
+//fliping the tiles after an enter to reveal the color of the tiles
+function flipTile(tile, status) {
+    tile.classList.add('flip');
+  
+    // After the flip animation, change the background color
+    setTimeout(() => {
+      tile.classList.remove('flip');
+      tile.classList.remove('absent');
+      tile.classList.add(status); // status can be 'correct', 'present', or 'absent'
+    }, 300); // Adjust timing as needed (half of the flip duration)
+}
+
+function sleep(ms) {
+    return new Promise(resolve => setTimeout(resolve, ms));
+}
+
+//vibrate the tiles if the word is not on the word list
+function triggerVibration(tile) {
+    tile.classList.add('vibrate');
+  
+    // Optionally, remove the vibration after a short time
+    setTimeout(() => {
+      tile.classList.remove('vibrate');
+    }, 600); // Vibrates for 600ms
 }
 
 
