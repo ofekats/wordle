@@ -282,26 +282,38 @@ function triggerVibration(tile) {
     }, 600); // Vibrates for 600ms
 }
 
-//show the how to play popup
-document.addEventListener('DOMContentLoaded', function () {
-    // Show the popup when the page loads
+//show the how to play popup each time the page loads and when click on the how to play image (?)
+document.addEventListener('DOMContentLoaded', () => {
     const popup = document.getElementById('popup-how-to-play');
     const closeButton = document.querySelector('.close-button');
-  
-    // Show the popup
-    popup.style.display = 'block';
-  
-    // Close the popup when the close button is clicked
-    closeButton.addEventListener('click', function () {
-      popup.style.display = 'none';
-    });
-  
-    // Optional: Close the popup if the user clicks outside the popup content
-    popup.addEventListener('click', function (event) {
-      if (event.target === popup) {
-        popup.style.display = 'none';
-      }
-    });
-  });
+    const showPopupButton = document.getElementById('show-how-to-play-popup');
 
-//need to add alert when game is over or you have won or word not in wordlist
+    // Function to show the popup
+    function showPopup() {
+        popup.style.display = 'block';
+    }
+
+    // Function to hide the popup
+    function hidePopup() {
+        popup.style.display = 'none';
+    }
+
+    // Show the popup when the page loads
+    showPopup();
+
+    // Show the popup when the image is clicked
+    showPopupButton.addEventListener('click', showPopup);
+
+    // Hide the popup when the close button is clicked
+    closeButton.addEventListener('click', hidePopup);
+
+    // Hide the popup when clicking outside of it
+    window.addEventListener('click', (event) => {
+        if (event.target === popup) {
+            hidePopup();
+        }
+    });
+});
+
+
+//need to add alert when game is over or you have won
