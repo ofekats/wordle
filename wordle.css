@@ -36,7 +36,7 @@ hr{
 
 #board {
     width: 300px;
-    height: 400px;
+    height: 350px;
     margin: 0 auto;
     margin-top: 3px;
     display: flex;
@@ -99,7 +99,8 @@ hr{
 }
 
 .keyboard-row {
-    width: 400px;
+    width: 500px;
+    /* height: 400px; */
     margin: 0 auto;
     display: flex;
     flex-wrap: wrap;
@@ -111,8 +112,8 @@ hr{
     /* box */
     background-color: #d3d6da;
     border: 1px solid #d3d6da;
-    width: 32px;
-    height: 40px;
+    width: 34px;
+    height: 44px;
     margin: 2px;
 
     /* text */
@@ -128,8 +129,8 @@ hr{
     background-color: #d3d6da;
     border: 1px solid #d3d6da;
     width: 76px;
-    height: 40px;
-    margin: 1px;
+    height: 44px;
+    margin: 2px;
 
     /* text */
     font-size: 20px;
