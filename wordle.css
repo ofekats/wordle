@@ -174,21 +174,23 @@ hr{
     height: 100%;
     background-color: rgba(0, 0, 0, 0.5); /* Black background with opacity */
     z-index: 1000; /* Sit on top */
-  }
+    overflow: hidden; /* Prevent scrolling of the main page */
+}
 
 /* Popup how-to-play content */
 .how-to-play {
-    top: -24%;
     background-color: white;
-    margin: 15% auto; /* 15% from the top and centered */
+    margin: 5% auto; /* Adjust margin for better centering */
     padding: 20px;
     border-radius: 10px;
     width: 80%;
     max-width: 500px;
     position: relative;
     text-align: left;
+    overflow-y: auto; /* Enable vertical scrolling within the popup */
+    max-height: 80vh; /* Restrict the height of the popup */
 }
-  
+
 /* Close button */
 .close-button {
     position: absolute;
@@ -196,7 +198,10 @@ hr{
     right: 10px;
     font-size: 24px;
     cursor: pointer;
+    z-index: 1001; /* Ensure the button is above the content */
 }
+
+
 
 /* Styling for the color indicators */
 .green {
