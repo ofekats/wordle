@@ -282,5 +282,26 @@ function triggerVibration(tile) {
     }, 600); // Vibrates for 600ms
 }
 
+//show the how to play popup
+document.addEventListener('DOMContentLoaded', function () {
+    // Show the popup when the page loads
+    const popup = document.getElementById('popup-how-to-play');
+    const closeButton = document.querySelector('.close-button');
+  
+    // Show the popup
+    popup.style.display = 'block';
+  
+    // Close the popup when the close button is clicked
+    closeButton.addEventListener('click', function () {
+      popup.style.display = 'none';
+    });
+  
+    // Optional: Close the popup if the user clicks outside the popup content
+    popup.addEventListener('click', function (event) {
+      if (event.target === popup) {
+        popup.style.display = 'none';
+      }
+    });
+  });
 
 //need to add alert when game is over or you have won or word not in wordlist
