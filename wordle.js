@@ -166,7 +166,7 @@ async function update_board(){
                 let currentTile = document.getElementById(row.toString() + "_" + c.toString());
                 //flip the tile
                 flipTile(currentTile, "correct");
-                await sleep(200); // Wait for 300ms before flipping the next tile
+                await sleep(300);
             }
             gameOver = true;
             showPopUp("You are awesome!");
