@@ -166,10 +166,17 @@ async function update_board(){
                 let currentTile = document.getElementById(row.toString() + "_" + c.toString());
                 //flip the tile
                 flipTile(currentTile, "correct");
-                await sleep(300); // Wait for 300ms before flipping the next tile
+                await sleep(200); // Wait for 300ms before flipping the next tile
             }
             gameOver = true;
             showPopUp("You are awesome!");
+            //bounce the tiles
+            for(let c = 0; c < width; ++c){
+                let currentTile = document.getElementById(row.toString() + "_" + c.toString());
+                triggerBounce(currentTile);
+                await sleep(100);
+            }
+            
             return;
         }
     }
@@ -279,6 +286,16 @@ function triggerVibration(tile) {
     // Optionally, remove the vibration after a short time
     setTimeout(() => {
       tile.classList.remove('vibrate');
+    }, 600); // Vibrates for 600ms
+}
+
+//vibrate the tiles if the word is not on the word list
+function triggerBounce(tile) {
+    tile.classList.add('bounce');
+  
+    // Optionally, remove the vibration after a short time
+    setTimeout(() => {
+      tile.classList.remove('bounce');
     }, 600); // Vibrates for 600ms
 }
 

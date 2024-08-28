@@ -76,9 +76,25 @@ hr{
   }
   
 .vibrate {
-    animation: vibrate 0.3s linear infinite; /* Adjust duration and repetition as needed */
+    animation: vibrate 0.3s linear infinite;
 }
-  
+
+/* Add a bouncing animation to the popup */
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {
+        transform: translateY(0); /* Start and end at the original position */
+    }
+    40% {
+        transform: translateY(-20px); /* Move up */
+    }
+    60% {
+        transform: translateY(-15px); /* Move slightly up */
+    }
+}
+
+.bounce {
+    animation: bounce 1s ease infinite; /* Apply the bounce animation */
+}
 
 .correct{
     background-color: #6AAA64 !important;
