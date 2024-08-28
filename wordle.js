@@ -178,7 +178,7 @@ async function update_board(){
     for(let c =0; c < width; ++c){
         let currentTile = document.getElementById(row.toString() + "_" + c.toString());
         let letter = currentTile.innerText;
-        if(!currentTile.classList.contains("correct")){
+        if(listclass[c] != "correct"){
             // is it in the word?
             if (word.includes(letter) && letterCount[letter] > 0){
                 //save the class color
