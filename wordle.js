@@ -124,6 +124,15 @@ async function processInput(e){
         await sleep(2000);
         update_keyboard();
     }
+    else if (e.code == "Enter"){ //Not enough letters
+        //vibrate the tiles
+        for(let c = 0; c < width; ++c){
+            let currentTile = document.getElementById(row.toString() + "_" + c.toString());
+            triggerVibration(currentTile);
+        }
+        showPopUp("Not enough letters");
+        return;
+    }
 
     if(!gameOver && row == height){
         gameOver = true;
