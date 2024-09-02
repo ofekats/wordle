@@ -1,3 +1,4 @@
+//this file contain the main functions for the game
 
 var height = 6; //number of guesses
 var width = 5; //length of the word
@@ -257,89 +258,10 @@ async function update_keyboard(){
     col = 0;
 }
 
-//function to show the popup with the message as input for 1 second
-function showPopUp(popupMessage){
-    const popup = document.getElementById('popup');
-    popup.innerText = popupMessage;
-    // Show the pop-up
-    popup.classList.remove('hidden');
-    popup.classList.add('show');
-
-    // Hide the pop-up after 1 second (1000ms)
-    setTimeout(function() {
-        popup.classList.remove('show');
-        popup.classList.add('hidden');
-    }, 2000);  // 1 second delay
-}
-
-//fliping the tiles after an enter to reveal the color of the tiles
-function flipTile(tile, status) {
-    tile.classList.add('flip');
-  
-    // After the flip animation, change the background color
-    setTimeout(() => {
-      tile.classList.remove('flip');
-      tile.classList.remove('absent');
-      tile.classList.add(status); // status can be 'correct', 'present', or 'absent'
-    }, 300); // Adjust timing as needed (half of the flip duration)
-}
-
+//to make the tiles change one by one
 function sleep(ms) {
     return new Promise(resolve => setTimeout(resolve, ms));
 }
-
-//vibrate the tiles if the word is not on the word list
-function triggerVibration(tile) {
-    tile.classList.add('vibrate');
-  
-    // Optionally, remove the vibration after a short time
-    setTimeout(() => {
-      tile.classList.remove('vibrate');
-    }, 600); // Vibrates for 600ms
-}
-
-//vibrate the tiles if the word is not on the word list
-function triggerBounce(tile) {
-    tile.classList.add('bounce');
-  
-    // Optionally, remove the vibration after a short time
-    setTimeout(() => {
-      tile.classList.remove('bounce');
-    }, 600); // Vibrates for 600ms
-}
-
-//show the how to play popup each time the page loads and when click on the how to play image (?)
-document.addEventListener('DOMContentLoaded', () => {
-    const popup = document.getElementById('popup-how-to-play');
-    const closeButton = document.querySelector('.close-button');
-    const showPopupButton = document.getElementById('show-how-to-play-popup');
-
-    // Function to show the popup
-    function showPopup() {
-        popup.style.display = 'block';
-    }
-
-    // Function to hide the popup
-    function hidePopup() {
-        popup.style.display = 'none';
-    }
-
-    // Show the popup when the page loads
-    showPopup();
-
-    // Show the popup when the image is clicked
-    showPopupButton.addEventListener('click', showPopup);
-
-    // Hide the popup when the close button is clicked
-    closeButton.addEventListener('click', hidePopup);
-
-    // Hide the popup when clicking outside of it
-    window.addEventListener('click', (event) => {
-        if (event.target === popup) {
-            hidePopup();
-        }
-    });
-});
 
 
 //need to add alert when game is over or you have won
