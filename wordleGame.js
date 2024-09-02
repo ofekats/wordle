@@ -137,6 +137,8 @@ async function processInput(e){
 
     if(!gameOver && row == height){
         gameOver = true;
+        saveGameResult(0, row); //lose the game
+        displayStats();
         document.getElementById("answer").innerText = word;
     }
 }
@@ -186,7 +188,8 @@ async function update_board(){
                 triggerBounce(currentTile);
                 await sleep(100);
             }
-            
+            saveGameResult(1, row); //win the game
+            displayStats();
             return;
         }
     }
