@@ -8,9 +8,10 @@ var col = 0;
 
 var gameOver = false;
 
-// var word = "SUQID";
-//wordList defined in file "wordList.js"
+//the answer:
+//wordList and guessList defined in file "wordList.js"
 var word = wordList[Math.floor(Math.random() * wordList.length)].toUpperCase();
+
 //the answer!!!!!
 console.log(word);
 
@@ -110,7 +111,7 @@ async function processInput(e){
             guess += letter;
         }
         guess = guess.toLowerCase();
-        if(!wordList.includes(guess)){
+        if(!guessList.includes(guess)){
             // document.getElementById("answer").innerText = "Not in word list";
             
             //vibrate the tiles
