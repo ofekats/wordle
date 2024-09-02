@@ -34,12 +34,6 @@ function getStats() {
 // Function to display the stats in the modal
 function displayStats() {
     let stats = getStats();
-
-    console.log(`Games Played: ${stats.gamesPlayed}`);
-    console.log(`Wins: ${stats.wins}`);
-    console.log(`Current Streak: ${stats.streak}`);
-    console.log(`Max Streak: ${stats.maxStreak}`);
-    console.log(`Guess Distribution: `, stats.guessDistribution);
   
    // Populate the stats in the table
   document.getElementById('gamesPlayed').textContent = stats.gamesPlayed || 0;
@@ -100,7 +94,7 @@ function displayStats() {
   const modal = document.getElementById('statsModal');
   
   // Get the button that opens the modal
-  const btn = document.getElementById('showStatsBtn');
+  const btn = document.getElementById('showStats');
   
   // Get the <span> element that closes the modal
   const span = document.getElementsByClassName('close')[0];
