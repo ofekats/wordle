@@ -225,16 +225,19 @@ body{
 .green {
     color: #6aaa64;
     font-weight: bold;
+    margin-right: 12px;
 }
 
 .yellow {
     color: #c9b458;
     font-weight: bold;
+    margin-right: 12px;
 }
 
 .gray {
     color: #787c7e;
     font-weight: bold;
+    margin-right: 12px;
 }
 
 .color-explaination {
@@ -301,7 +304,8 @@ body{
 .modal-content {
     border-radius: 10px;
     background-color: white;
-    margin: 15% auto;
+    margin: auto;
+    margin-top: 10%;
     padding: 20px;
     border: 1px solid #888;
     width: 80%;
