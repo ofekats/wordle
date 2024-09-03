@@ -39,7 +39,7 @@ function loadBoardFromGameState(gameState){
     for (let r = 0; r < height; ++r) {
         let guess = gameState.guesses[r]; 
         let state = gameState.boardState[r]; 
-        if (guess === "" ){
+        if (guess === ""){
             return;
         }
         for (let c = 0; c < width; ++c) {

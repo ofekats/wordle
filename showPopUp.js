@@ -32,7 +32,11 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // Show the popup when the page loads
-    showPopup();
+    const gameState = JSON.parse(localStorage.getItem('gameState')) || '{}';
+    console.log(gameState);
+    if(gameState === '{}' && gameState.date != getIsraelDate()){
+        showPopup();
+    }
 
     // Show the popup when the image is clicked
     showPopupButton.addEventListener('click', showPopup);
