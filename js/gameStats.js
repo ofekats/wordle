@@ -54,8 +54,8 @@ function displayStats() {
 
   // Find the maximum guess count and cap it at 1000 if it's larger
   const rawMaxGuessCount = Math.max(...Object.values(guessDistribution), 1); // Avoid division by zero
-  const maxGuessCount = Math.max(rawMaxGuessCount, 1000); // Cap at 1000
-  const maxBarWidth = 1000; // Maximum width in pixels
+  const maxGuessCount = Math.max(rawMaxGuessCount, 200); // Cap at 1000
+  const maxBarWidth = 500; // Maximum width in pixels
 
   // Determine which guess number has the highest count
   let currentGuess = stats.lastGuess || 0;
