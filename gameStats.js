@@ -92,7 +92,7 @@ function displayStats() {
 
     guessDistributionContainer.appendChild(guessBar);
   }
-
+  startCountdown();
   document.getElementById('statsModal').style.display = 'block';
   }
   
