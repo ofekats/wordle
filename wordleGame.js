@@ -190,6 +190,7 @@ async function update_board(){
                 await sleep(100);
             }
             saveGameResult(1, row); //win the game
+            sleep(100);
             displayStats();
             return;
         }
