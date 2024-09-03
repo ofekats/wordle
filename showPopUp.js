@@ -51,3 +51,27 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 });
+
+//who am I popup
+document.addEventListener('DOMContentLoaded', () => {
+    const openPopupButton = document.getElementById('showwhoIam');
+    const popup = document.getElementById('whoAmIpopup');
+    const closePopupButton = document.getElementById('closeWhoAmIPopup');
+
+    // Open the popup
+    openPopupButton.addEventListener('click', () => {
+        popup.style.display = 'block';
+    });
+
+    // Close the popup
+    closePopupButton.addEventListener('click', () => {
+        popup.style.display = 'none';
+    });
+
+    // Close the popup if the user clicks outside of it
+    window.addEventListener('click', (event) => {
+        if (event.target === popup) {
+            popup.style.display = 'none';
+        }
+    });
+});

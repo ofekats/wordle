@@ -5,7 +5,7 @@ function getIsraelDateTime() {
     const isDST = now.getMonth() > 2 && now.getMonth() < 10; // DST typically starts in March and ends in October
     const israelOffset = now.getTimezoneOffset() + (isDST ? 180 : 120); // UTC+3 for summer, UTC+2 for winter
     const israelDate = new Date(now.getTime() + israelOffset * 60 * 1000);
-    return israelDate;
+    return israelDate; //return a DATE object
 }
 
 function calculateTimeUntilMidnight() {
@@ -44,6 +44,3 @@ function startCountdown() {
     
     updateCountdown(); // Start the countdown
 }
-
-// // Call this function when the page loads
-// document.addEventListener('DOMContentLoaded', startCountdown);
