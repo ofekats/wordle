@@ -8,11 +8,11 @@ function showPopUp(popupMessage){
     popup.classList.remove('hidden');
     popup.classList.add('show');
 
-    // Hide the pop-up after 1 second (1000ms)
+    // Hide the pop-up after 2 second (2000ms)
     setTimeout(function() {
         popup.classList.remove('show');
         popup.classList.add('hidden');
-    }, 2000);  // 1 second delay
+    }, 2000);  // 2 seconds delay
 }
 
 //show the how to play popup each time the page loads and when click on the how to play image (?)
@@ -33,8 +33,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Show the popup when the page loads
     const gameState = JSON.parse(localStorage.getItem('gameState')) || '{}';
-    console.log(gameState);
-    if(gameState === '{}' && gameState.date != getIsraelDate()){
+    
+    if(gameState === '{}' || gameState.date != getIsraelDate()){
         showPopup();
     }
 

@@ -12,6 +12,12 @@ function saveGameResult(win, numGuesses) {
     //add to the count of the game played
     stats.gamesPlayed++;
 
+    //is the game played in a streak? check if missed a date
+    const gameState = JSON.parse(localStorage.getItem('gameState')) || '{}';
+    if(gameState === '{}' || !isDateYesterday(gameState.date)){
+      stats.streak = 0;
+    }
+
     //if win - add to wins, streak, max-streak and guess distribution
     if (win) {
         stats.wins++;

@@ -147,8 +147,8 @@ async function processInput(e){
 
     if(!gameOver && row == height){
         gameOver = true;
-        saveStateGame();
         saveGameResult(0, row); //lose the game
+        saveStateGame();
         showPopUp("maybe next time...")
         sleep(100);
         displayStats();
@@ -193,6 +193,7 @@ async function update_board(){
             }
             gameOver = true;
             showPopUp("You are awesome!");
+            saveGameResult(1, row); //win the game
             saveStateGame();
             //bounce the tiles
             for(let c = 0; c < width; ++c){
@@ -200,7 +201,6 @@ async function update_board(){
                 triggerBounce(currentTile);
                 await sleep(100);
             }
-            saveGameResult(1, row); //win the game
             sleep(100);
             displayStats();
             return;
