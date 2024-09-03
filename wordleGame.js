@@ -104,7 +104,6 @@ async function processInput(e){
     else if (e.code == "Enter" && col == width){
         //check if the guess is a word
         let guess = "";
-        document.getElementById("answer").innerText = "";
         //string up the guess word
         for(let c = 0; c < width; ++c){
             let currentTile = document.getElementById(row.toString() + "_" + c.toString());
@@ -113,7 +112,6 @@ async function processInput(e){
         }
         guess = guess.toLowerCase();
         if(!guessList.includes(guess)){
-            // document.getElementById("answer").innerText = "Not in word list";
             
             //vibrate the tiles
             for(let c = 0; c < width; ++c){
@@ -140,8 +138,9 @@ async function processInput(e){
     if(!gameOver && row == height){
         gameOver = true;
         saveGameResult(0, row); //lose the game
+        showPopUp("maybe next time...")
+        sleep(100);
         displayStats();
-        document.getElementById("answer").innerText = word;
     }
 }
 
