@@ -70,6 +70,16 @@ function intialize(){
         document.body.appendChild(keyboardRow);
     }
 
+    //check if already played today
+    const gameState = JSON.parse(localStorage.getItem('gameState')) || {};
+    if(gameState != {} && gameState.date === getIsraelDate()){
+        loadBoardFromGameState(gameState);
+        gameOver = true;
+        sleep(100);
+        displayStats();
+        return;
+    }
+
     // user input
     document.addEventListener("keyup", (e) => {
         processInput(e);
@@ -137,6 +147,7 @@ async function processInput(e){
 
     if(!gameOver && row == height){
         gameOver = true;
+        saveStateGame();
         saveGameResult(0, row); //lose the game
         showPopUp("maybe next time...")
         sleep(100);
@@ -182,6 +193,7 @@ async function update_board(){
             }
             gameOver = true;
             showPopUp("You are awesome!");
+            saveStateGame();
             //bounce the tiles
             for(let c = 0; c < width; ++c){
                 let currentTile = document.getElementById(row.toString() + "_" + c.toString());
