@@ -10,8 +10,9 @@ var gameOver = false;
 
 //the answer:
 //wordList and guessList defined in file "wordList.js"
-var word = wordList[Math.floor(Math.random() * wordList.length)].toUpperCase();
-
+// var word = wordList[Math.floor(Math.random() * wordList.length)].toUpperCase();
+//each day a diffrente word
+var word = selectTodaysWord(wordList);
 //the answer!!!!!
 console.log(word);
 
@@ -156,14 +157,13 @@ async function update_board(){
             letterCount[letter] = 1;
         }
     }
-
+    
     //listclass for the tiles
     listclass = ["absent", "absent", "absent", "absent", "absent"];
     //check all the correct ones
     for(let c =0; c < width; ++c){
         let currentTile = document.getElementById(row.toString() + "_" + c.toString());
         let letter = currentTile.innerText;
-
         //is it the correct letter?
         if (word[c] == letter){
             //save the class color
