@@ -1,9 +1,41 @@
 body{
     font-family: Arial, Helvetica, sans-serif;
     text-align: center;
+    /* overflow-x: hidden; Prevent horizontal scroll */
 }
 
 
 h3{
     text-align: left;
+}
+
+@media (max-width: 500px) {
+    /* Adjust styles for small screens */
+    .headline {
+        /* Example: Adjust headline padding or margin */
+        padding: 10px;
+        margin: 0;
+    }
+    .top-left-image,
+    .top-right-image,
+    .top-second-right-image {
+        /* Example: Adjust image sizes */
+        width: 50px;
+        height: auto;
+    }
+
+    .keyboard-row {
+        width: 100%; /* Full width of the viewport */
+    }
+
+    .key-tile,
+    .enter-key-tile {
+        width: 28px; /* Smaller width */
+        height: 36px; /* Smaller height */
+        font-size: 14px; /* Adjust font size */
+    }
+
+    .enter-key-tile {
+        width: 56px; /* Smaller width */
+    }
 }
