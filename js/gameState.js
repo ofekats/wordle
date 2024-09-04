@@ -18,10 +18,6 @@ function saveStateGame() {
         boardState.push(state); // Add the current state to the boardState array
     }
 
-    // Now `guesses` contains all the guesses, and `boardState` contains the class states
-    console.log(guesses);
-    console.log(boardState);
-
     const gameState = {
         date: getIsraelDate(),
         guesses: guesses,

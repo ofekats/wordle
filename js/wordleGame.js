@@ -150,12 +150,14 @@ async function processInput(e){
         saveGameResult(0, row); //lose the game
         saveStateGame();
         showPopUp("maybe next time...")
-        sleep(200);
+        sleep(700);
         displayStats();
+        return;
     }
 }
 
 async function update_board(){
+    if(gameOver) return;
     //start processing game
     let correct = 0;
     let letterCount = {};
@@ -193,15 +195,15 @@ async function update_board(){
             }
             gameOver = true;
             showPopUp(getRandomMessage(row));
-            saveGameResult(1, row); //win the game
-            saveStateGame();
             //bounce the tiles
             for(let c = 0; c < width; ++c){
                 let currentTile = document.getElementById(row.toString() + "_" + c.toString());
                 triggerBounce(currentTile);
                 await sleep(100);
             }
-            sleep(200);
+            saveGameResult(1, row); //win the game
+            saveStateGame();
+            sleep(700);
             displayStats();
             return;
         }
