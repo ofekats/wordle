@@ -17,8 +17,6 @@ function saveStateGame() {
         guesses.push(guess); // Add the current guess to the guesses array
         boardState.push(state); // Add the current state to the boardState array
     }
-    console.log("guesses:",guesses);
-    console.log("boardState:",boardState);
     const gameState = {
         date: getIsraelDate(),
         guesses: guesses,
@@ -31,7 +29,8 @@ function loadBoardFromGameState(gameState){
     const map = {
         "tile correct": "correct",
         "tile absent": "absent",
-        "tile present": "present"
+        "tile present": "present",
+        "tile correct bounce": "correct"
     }
     for (let r = 0; r < height; ++r) {
         let guess = gameState.guesses[r]; 
