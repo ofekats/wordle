@@ -150,7 +150,7 @@ async function processInput(e){
         saveGameResult(0, row); //lose the game
         saveStateGame();
         showPopUp("maybe next time...")
-        sleep(100);
+        sleep(200);
         displayStats();
     }
 }
@@ -192,7 +192,7 @@ async function update_board(){
                 await sleep(300);
             }
             gameOver = true;
-            showPopUp("You are awesome!");
+            showPopUp(getRandomMessage(row));
             saveGameResult(1, row); //win the game
             saveStateGame();
             //bounce the tiles
@@ -201,7 +201,7 @@ async function update_board(){
                 triggerBounce(currentTile);
                 await sleep(100);
             }
-            sleep(100);
+            sleep(200);
             displayStats();
             return;
         }
