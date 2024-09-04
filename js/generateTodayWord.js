@@ -2,11 +2,26 @@
 
 function getIsraelDate() {
     const now = new Date();
-    const isDST = now.getMonth() > 2 && now.getMonth() < 10; // DST typically starts in March and ends in October
-    const israelOffset = now.getTimezoneOffset() + (isDST ? 180 : 120); // UTC+3 for summer, UTC+2 for winter
-    const israelDate = new Date(now.getTime() + israelOffset * 60 * 1000);
-    return israelDate.toISOString().split('T')[0]; // Returns 'YYYY-MM-DD'
+
+    // Create an Intl.DateTimeFormat object for Israel's timezone
+    const israelDateTimeFormat = new Intl.DateTimeFormat('en-US', {
+        timeZone: 'Asia/Jerusalem',
+        year: 'numeric',
+        month: '2-digit',
+        day: '2-digit',
+    });
+
+    // Format the date to get the correct day in Israel's timezone
+    const [
+        { value: month },,
+        { value: day },,
+        { value: year }
+    ] = israelDateTimeFormat.formatToParts(now);
+
+    // Return the date in YYYY-MM-DD format
+    return `${year}-${month}-${day}`;
 }
+
   
 function selectTodaysWord(wordList) {
     const today = getIsraelDate();
