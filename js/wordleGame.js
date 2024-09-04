@@ -14,7 +14,7 @@ var gameOver = false;
 //each day a diffrente word
 var word = selectTodaysWord(wordList);
 //the answer!!!!!
-console.log(word);
+// console.log(word);
 
 window.onload = function(){
     intialize();
