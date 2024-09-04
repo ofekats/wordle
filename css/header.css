@@ -1,0 +1,30 @@
+.title-line{
+    width: 500px;
+}
+
+.logo_image {
+    width: 35px;
+    height: 35px;
+    margin-right: 15px;
+}
+
+.headline {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    max-width: 500px;
+    margin: 0 auto; /* Center the entire container horizontally */
+}
+
+.logo-link, .title {
+    display: flex;
+    align-items: center;
+}
+
+.title{
+    font-size: 36px;
+    font-weight: bold;
+    letter-spacing: 2px;
+    margin-top: 5px;
+    margin-bottom: 10px;
+}
