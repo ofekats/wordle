@@ -12,7 +12,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    max-width: 500px;
+    max-width: 300px;
     margin: 0 auto; /* Center the entire container horizontally */
 }
 
