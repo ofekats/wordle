@@ -17,7 +17,8 @@ function saveStateGame() {
         guesses.push(guess); // Add the current guess to the guesses array
         boardState.push(state); // Add the current state to the boardState array
     }
-
+    console.log("guesses:",guesses);
+    console.log("boardState:",boardState);
     const gameState = {
         date: getIsraelDate(),
         guesses: guesses,
