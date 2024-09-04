@@ -67,6 +67,7 @@
     width: 34px;
     height: 44px;
     margin: 2px;
+    border-radius: 5px;
 
     /* text */
     font-size: 20px;
@@ -83,6 +84,7 @@
     width: 76px;
     height: 44px;
     margin: 2px;
+    border-radius: 5px;
 
     /* text */
     font-size: 20px;
