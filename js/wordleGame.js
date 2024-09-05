@@ -280,6 +280,3 @@ async function update_keyboard(){
 function sleep(ms) {
     return new Promise(resolve => setTimeout(resolve, ms));
 }
-
-
-//need to add alert when game is over or you have won

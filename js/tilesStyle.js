@@ -1,4 +1,4 @@
-//this file contains the function that control the movement of the board tiles
+//this file contains the functions that control the animations of the board tiles
 
 //fliping the tiles after an enter to reveal the color of the tiles
 function flipTile(tile, status) {

@@ -25,7 +25,7 @@ function saveGameResult(win, numGuesses) {
         stats.maxStreak = Math.max(stats.streak, stats.maxStreak);
         stats.guessDistribution[numGuesses] = (stats.guessDistribution[numGuesses] || 0) + 1;
         stats.lastGuess = numGuesses;
-    } else { //if lost- start streak form the start
+    } else { //if lost- start streak from the start
         stats.streak = 0;
     }
 
@@ -37,7 +37,7 @@ function getStats() {
     return JSON.parse(localStorage.getItem('wordleStats')) || {};
 }
 
-// Function to display the stats in the modal
+// Function to display the stats in the modal popup
 function displayStats() {
     let stats = getStats();
   
@@ -52,9 +52,8 @@ function displayStats() {
   const guessDistributionContainer = document.getElementById('guessDistribution');
   guessDistributionContainer.innerHTML = ''; // Clear any existing content
 
-  // Find the maximum guess count and cap it at 1000 if it's larger
   const rawMaxGuessCount = Math.max(...Object.values(guessDistribution), 1); // Avoid division by zero
-  const maxGuessCount = Math.max(rawMaxGuessCount, 200); // Cap at 1000
+  const maxGuessCount = Math.max(rawMaxGuessCount, 200);
   const maxBarWidth = 500; // Maximum width in pixels
 
   // Determine which guess number has the highest count

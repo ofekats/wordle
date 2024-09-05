@@ -1,12 +1,12 @@
-//this file contain the function that save and present the game state if you already played the wordle this date
+//this file contain the function that save and present the game state if you already played the wordle on this date
 
 function saveStateGame() {
     let guesses = [];
     let boardState = [];
 
     for (let r = 0; r < height; ++r) {
-        let guess = ""; // Initialize as an empty string for the current guess
-        let state = []; // Initialize as an empty array for the state of the current guess
+        let guess = ""; 
+        let state = []; 
 
         for (let c = 0; c < width; ++c) {
             let currentTile = document.getElementById(r.toString() + "_" + c.toString());
@@ -26,7 +26,7 @@ function saveStateGame() {
 }
 
 function loadBoardFromGameState(gameState){
-    const map = {
+    const map = { //map to control the tile color
         "tile correct": "correct",
         "tile absent": "absent",
         "tile present": "present",

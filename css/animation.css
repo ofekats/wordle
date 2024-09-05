@@ -11,7 +11,7 @@
     animation: vibrate 0.3s linear infinite;
 }
 
-/* Add a bouncing animation to the popup */
+/* the bouncing animation */
 @keyframes bounce {
     0%, 20%, 50%, 80%, 100% {
         transform: translateY(0); /* Start and end at the original position */
@@ -26,4 +26,9 @@
 
 .bounce {
     animation: bounce 1s ease infinite; /* Apply the bounce animation */
+}
+
+/* The flipping animation */
+.tile.flip {
+    transform: rotateX(180deg);
 }

@@ -1,4 +1,4 @@
-//this file contain the function that control the popups
+//this file contain the functions that control the popups
 
 //function to show the popup with the message as input for 1 second (black backgrand small popup)
 function showPopUp(popupMessage){
@@ -15,7 +15,8 @@ function showPopUp(popupMessage){
     }, 2000);  // 2 seconds delay
 }
 
-//show the how to play popup each time the page loads and when click on the how to play image (?)
+//show the how to play popup each time the page loads (if didn't already played today)
+// and when click on the how to play image (?)
 document.addEventListener('DOMContentLoaded', () => {
     const popup = document.getElementById('popup-how-to-play');
     const closeButton = document.querySelector('.close-button');

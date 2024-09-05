@@ -39,7 +39,7 @@
 /* Popup how-to-play content */
 .how-to-play {
     background-color: white;
-    margin: 5% auto; /* Adjust margin for better centering */
+    margin: 5% auto; 
     padding: 20px;
     border-radius: 10px;
     width: 80%;
@@ -106,9 +106,9 @@
     position: absolute;
     top: 0;
     left: 0;
-    width: 50px; /* Adjust size as needed */
+    width: 50px;
     height: auto; /* Maintain aspect ratio */
-    margin: 10px; /* Optional: Adds space from the top and left edges */
+    margin: 10px;
 }
 
 .top-right-image{
@@ -129,7 +129,7 @@
     margin: 10px; 
 }
 
-/* The Modal (background) */
+/* The Modal-stats (background) */
 .modal {
     display: none;
     position: fixed;
@@ -142,7 +142,7 @@
     background-color: rgba(0, 0, 0, 0.4);
 }
   
-/* Modal Content */
+/* Modal- stats Content */
 .modal-content {
     border-radius: 10px;
     background-color: white;
@@ -206,10 +206,10 @@
     line-height: 25px;
     border-radius: 5px 0 0 5px;
     display: inline-block;
-  }
+}
   
-  /* The guess count bar (right side) */
-  .guessBar .guessCount {
+/* The guess count bar (right side) */
+.guessBar .guessCount {
     font-size: 14px;
     text-align: right;
     margin-top: 2px;
@@ -219,21 +219,25 @@
     line-height: 25px;
     display: inline-block;
     border-radius: 0 5px 5px 0;
-    background-color: #d3d3d3; /* Default to gray */
-  }
+    background-color: #d3d3d3;
+}
   
-  /* Gray background for inactive guesses */
-  .guessBar.gray .guessCount {
+/* Gray background for inactive guesses */
+.guessBar.gray .guessCount {
     background-color: #787c7e;
-  }
+}
   
-  /* Green background for active guess */
-  .guessBar.green .guessCount {
+/* Green background for active guess */
+.guessBar.green .guessCount {
     background-color: #6aaa64;
-  }
+}
+
+#countdown{
+    margin-top: 5%;
+}
   
   
- /* The popup (hidden by default) */
+ /* The who Am I popup (hidden by default) */
 .whoAmIpopup {
     display: none;
     position: fixed;
@@ -247,7 +251,7 @@
     background-color: rgba(0,0,0,0.4);
 }
 
-/* Popup content */
+/* who Am I Popup content */
 .whoAmIpopup-content {
     border-radius: 10px;
     background-color: #fefefe;
@@ -258,3 +262,4 @@
     max-width: 600px;
     position: relative;
 } 
+

@@ -61,6 +61,7 @@ function isDateYesterday(dateString) {
     return israelDate >= startOfYesterday && israelDate < endOfYesterday;
 }
 
+//to get the answer easily
 if (typeof module !== 'undefined' && module.exports) {
     // Node.js environment
     module.exports = {

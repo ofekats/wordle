@@ -31,14 +31,17 @@ function startCountdown() {
         const seconds = Math.floor((timeUntilMidnight % (1000 * 60)) / 1000);
         
         // Display the countdown
-        countdownElement.textContent = `time until next word: ${hours}h ${minutes}m ${seconds}s`;
+        countdownElement.textContent = `time until the next word: ${hours}h ${minutes}m ${seconds}s`;
         
         // Update the countdown every second
         if (timeUntilMidnight > 0) {
             setTimeout(updateCountdown, 1000);
         } else {
             countdownElement.textContent = "New word available!";
-            // Optionally, you can reload the page or update the word here
+            // Reload the page after a short delay
+            setTimeout(() => {
+                window.location.reload(); // Reloads the page
+            }, 1000); // 1-second delay to show the "New word available!" message
         }
     }
     
