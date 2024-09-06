@@ -34,7 +34,7 @@ function startCountdown() {
         countdownElement.textContent = `time until the next word: ${hours}h ${minutes}m ${seconds}s`;
         
         // Update the countdown every second
-        if (timeUntilMidnight > 0) {
+        if (timeUntilMidnight >= 1000) { // Give a 1-second grace period
             setTimeout(updateCountdown, 1000);
         } else {
             countdownElement.textContent = "New word available!";
