@@ -15,6 +15,15 @@ function showPopUp(popupMessage){
     }, 2000);  // 2 seconds delay
 }
 
+function showPopUpLost(popupMessage){
+    const popup = document.getElementById('popup');
+    popup.innerText = popupMessage;
+    // Show the pop-up
+    popup.classList.remove('hidden');
+    popup.classList.add('show');
+
+}
+
 //show the how to play popup each time the page loads (if didn't already played today)
 // and when click on the how to play image (?)
 document.addEventListener('DOMContentLoaded', () => {

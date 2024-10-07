@@ -27,6 +27,7 @@ function saveGameResult(win, numGuesses) {
         stats.lastGuess = numGuesses;
     } else { //if lost- start streak from the start
         stats.streak = 0;
+        stats.lastGuess = -1;
     }
 
     //save the data in the browser
@@ -56,7 +57,6 @@ function displayStats() {
   const maxGuessCount = Math.max(rawMaxGuessCount, 200);
   const maxBarWidth = 500; // Maximum width in pixels
 
-  // Determine which guess number has the highest count
   let currentGuess = stats.lastGuess || 0;
 
   for (let i = 1; i <= 6; i++) {
@@ -80,10 +80,14 @@ function displayStats() {
 
     // Apply the appropriate class based on whether it's the current guess
     if (i === currentGuess) {
-        guessBar.classList.add('green');
-      } else {
-        guessBar.classList.add('gray');
-      }
+      guessBar.classList.add('green');
+    } else {
+      guessBar.classList.add('gray');
+    }
+
+    if(currentGuess === -1){
+      showPopUpLost(word);
+    }
 
     // Append spans to the bar
     guessBar.appendChild(guessNumberSpan);

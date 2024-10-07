@@ -149,7 +149,7 @@ async function processInput(e){
         gameOver = true;
         saveGameResult(0, row); //lose the game
         saveStateGame();
-        showPopUp("maybe next time...")
+        showPopUpLost(word);
         sleep(700);
         displayStats();
         return;
