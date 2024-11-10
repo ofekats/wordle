@@ -1,6 +1,6 @@
 //this file contain the function that save and present the game state if you already played the wordle on this date
 
-function saveStateGame() {
+function saveStateGame(gameOver, row, col) {
     let guesses = [];
     let boardState = [];
 
@@ -19,13 +19,16 @@ function saveStateGame() {
     }
     const gameState = {
         date: getIsraelDate(),
+        gameOver: gameOver,
+        row: row,
+        col: col,
         guesses: guesses,
         boardState: boardState
       };
       localStorage.setItem('gameState', JSON.stringify(gameState));
 }
 
-function loadBoardFromGameState(gameState){
+async function loadBoardFromGameState(gameState){
     const map = { //map to control the tile color
         "tile correct": "correct",
         "tile absent": "absent",
@@ -36,13 +39,23 @@ function loadBoardFromGameState(gameState){
         let guess = gameState.guesses[r]; 
         let state = gameState.boardState[r]; 
         if (guess === ""){
-            return;
+            break;
         }
         for (let c = 0; c < width; ++c) {
             let currentTile = document.getElementById(r.toString() + "_" + c.toString());
             currentTile.innerText = guess[c];
             currentTile.classList.add(map[state[c]]);
         }
+    }
+    
+    if(gameState.gameOver == false){
+        let dup_row = gameState.row;
+        
+        for(let i = 0; i < dup_row; ++i){
+            row = i;
+            await update_keyboard();
+        }
+        row = dup_row;
     }
 
 }

@@ -76,10 +76,14 @@ function intialize(){
     const gameState = JSON.parse(localStorage.getItem('gameState')) || {};
     if(gameState != {} && gameState.date === getIsraelDate()){
         loadBoardFromGameState(gameState);
-        gameOver = true;
+        gameOver = gameState.gameOver;
+        row = gameState.row;
+        col = gameState.col;
         sleep(100);
-        displayStats();
-        return;
+        if(gameOver){
+            displayStats();
+            return;
+        }
     }
 
     // user input
@@ -137,6 +141,7 @@ async function processInput(e){
         update_board();
         await sleep(2000);
         update_keyboard();
+        saveStateGame(gameOver, row, col);
         inprosses = false;
     }
     else if (e.code == "Enter"){ //Not enough letters
@@ -152,7 +157,7 @@ async function processInput(e){
     if(!gameOver && row == height){
         gameOver = true;
         saveGameResult(0, row); //lose the game
-        saveStateGame();
+        saveStateGame(gameOver, row, col);
         showPopUpLost(word);
         sleep(700);
         displayStats();
@@ -206,7 +211,7 @@ async function update_board(){
                 await sleep(100);
             }
             saveGameResult(1, row); //win the game
-            saveStateGame();
+            saveStateGame(gameOver, row, col);
             sleep(700);
             displayStats();
             return;
@@ -239,12 +244,10 @@ async function update_board(){
 }
 
 async function update_keyboard(){
-    
     //check all the correct ones
     for(let c =0; c < width; ++c){
         let currentTile = document.getElementById(row.toString() + "_" + c.toString());
         let letter = currentTile.innerText;
-
         //is it the correct letter?
         if (word[c] == letter){
             
