@@ -7,6 +7,8 @@ var row = 0;
 var col = 0;
 
 var gameOver = false;
+//to not be allowed to change the guess when it checks the letters
+var inprosses = false;
 
 //the answer:
 //wordList and guessList defined in file "wordList.js"
@@ -93,7 +95,7 @@ function processKey(){
 
 async function processInput(e){
     if(gameOver) return;
-
+    if(inprosses) return;
     // if the user enter a letter
     if("KeyA" <= e.code && e.code <= "KeyZ"){
         if(col < width){
@@ -112,6 +114,7 @@ async function processInput(e){
             currentTile.innerText = "";
     }
     else if (e.code == "Enter" && col == width){
+        inprosses = true;
         //check if the guess is a word
         let guess = "";
         //string up the guess word
@@ -122,18 +125,19 @@ async function processInput(e){
         }
         guess = guess.toLowerCase();
         if(!guessList.includes(guess)){
-            
             //vibrate the tiles
             for(let c = 0; c < width; ++c){
                 let currentTile = document.getElementById(row.toString() + "_" + c.toString());
                 triggerVibration(currentTile);
             }
             showPopUp("Not in word list");
+            inprosses = false;
             return;
         }
         update_board();
         await sleep(2000);
         update_keyboard();
+        inprosses = false;
     }
     else if (e.code == "Enter"){ //Not enough letters
         //vibrate the tiles
