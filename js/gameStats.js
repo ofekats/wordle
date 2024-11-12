@@ -14,7 +14,7 @@ function saveGameResult(win, numGuesses) {
 
     //is the game played in a streak? check if missed a date
     const gameState = JSON.parse(localStorage.getItem('gameState')) || '{}';
-    if(gameState === '{}' || !isDateYesterday(gameState.date)){
+    if(gameState === '{}' || (!isDateYesterday(gameState.date) && gameState.date != getIsraelDate())){
       stats.streak = 0;
     }
 
@@ -58,7 +58,7 @@ function displayStats() {
   const maxBarWidth = 500; // Maximum width in pixels
 
   let currentGuess = stats.lastGuess || 0;
-
+  
   for (let i = 1; i <= 6; i++) {
     const guessCount = guessDistribution[i] || 0;
     const guessBar = document.createElement('div');
@@ -83,10 +83,6 @@ function displayStats() {
       guessBar.classList.add('green');
     } else {
       guessBar.classList.add('gray');
-    }
-
-    if(currentGuess === -1){
-      showPopUpLost(word);
     }
 
     // Append spans to the bar

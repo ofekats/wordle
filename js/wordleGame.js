@@ -80,8 +80,13 @@ function intialize(){
         row = gameState.row;
         col = gameState.col;
         sleep(100);
+        let stats = getStats();
         if(gameOver){
+            // if already played today show the stats 
             displayStats();
+            if(stats.streak === 0){ //if played and lost show the answer
+                showPopUpLost(word);
+            }
             return;
         }
     }
