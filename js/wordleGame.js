@@ -215,9 +215,9 @@ async function update_board(){
                 triggerBounce(currentTile);
                 await sleep(100);
             }
+            await triggerConfetti();
             saveGameResult(1, row); //win the game
             saveStateGame(gameOver, row, col);
-            sleep(700);
             displayStats();
             return;
         }
